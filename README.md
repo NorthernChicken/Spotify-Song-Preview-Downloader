@@ -9,3 +9,6 @@ Note: This code uses my personal Spotify API token. I don't expect this project 
 2. Enter the song ID into the code, under the ```artist_id``` variable, or use the example song already there.
 3. Run the script ```python main.py```
 4. An mp3 file should be downloaded to the same folder as the Python script, or you will get an error message, as Spotify doesn't assign every song a downloadable preview.
+# To-Do
+- Add a simple UI with Tkinter or similar
+- Add a search feature for songs
