@@ -5,7 +5,10 @@ import os
 
 api_base_token = "https://accounts.spotify.com/api/"
 api_base = "https://api.spotify.com/v1/"
-artist_id = "10lT3pp9QERGOWiIzLx4We"    # American Idiot (Song)
+try:
+    artist_id = str(input("Enter the Spotify song ID: "))
+except Exception as e:
+    print(f"Invalid song ID. Error: {e}")
 
 def get_access_token(api_base):
     api_url = api_base + "token"
@@ -29,7 +32,7 @@ def get_access_token(api_base):
 
 token = get_access_token(api_base_token)
 
-def things_and_stuff(api_base, token, artist_id):
+def download_song(api_base, token, artist_id):
     api_url = api_base + "tracks/" + artist_id
     headers = {
         "Authorization": "Bearer " + token
@@ -54,5 +57,5 @@ def clear_cache():
     path = os.path.join(root_dir, "results.json")
     os.remove(path)
 
-things_and_stuff(api_base, token, artist_id)
+download_song(api_base, token, artist_id)
 clear_cache()
